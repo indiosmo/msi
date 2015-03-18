@@ -1,0 +1,633 @@
+<templates>
+
+  <fields>
+    <field name="seqnum" type="uint32"/>
+    <field name="update_action" type="uint32">
+      <value name="new" value="0"/>
+      <value name="change" value="1"/>
+      <value name="delete" value="2"/>
+      <value name="delete_thru" value="3"/>
+      <value name="delete_from" value="4"/>
+      <value name="overlay" value="5"/>
+    </field>
+    <field name="security_id" type="uint64"/>
+    <field name="entry_price" type="decimal"/>
+    <field name="entry_size" type="int64"/>
+    <field name="entry_date" type="uint32"/>
+    <field name="entry_time" type="uint32"/>
+    <field name="trade_condition" type="multistring">
+      <value name="opening_price" value="R"/>
+      <value name="crossed" value="X"/>
+      <value name="last_trade_at_price" value="L"/>
+      <value name="imbalance_more_buyers" value="P"/>
+      <value name="imbalance_more_sellers" value="Q"/>
+      <value name="exchange_last" value="U"/>
+      <value name="multi_asset_trade" value="3"/>
+      <value name="leg_trade" value="2"/>
+      <value name="marketplace_entered_trade" value="1"/>
+    </field>
+    <field name="feed_type" type="string">
+      <value name="standard" value="STD"/>
+      <value name="implied" value="IMP"/>
+    </field>
+    <field name="market_depth" type="uint32">
+      <value name="full" value="0"/>
+      <value name="top" value="0"/>
+    </field>
+    <field name="appl_id" type="string"/>
+    <field name="security_alt_id" type="string"/>
+    <field name="security_alt_id_source" type="string">
+      <value name="isin" value="4"/>
+      <value name="clearing" value="H"/>
+    </field>
+    <field name="symbol" type="string"/>
+    <field name="underlying_security_id" type="string"/>
+    <field name="underlying_security_id_source" type="string">
+      <value name="isin" value="4"/>
+      <value name="exchange" value="8"/>
+    </field>
+    <field name="underlying_security_exchange" type="string"/>
+    <field name="index_pct" type="decimal"/>
+    <field name="index_theoretical_qty" type="decimal"/>
+    <field name="security_id_source" type="string">
+      <value name="exchange" value="8"/>
+    </field>
+    <field name="security_exchange" type="string">
+      <value name="bvmf" value="BVMF"/>
+    </field>
+    <field name="implied_market_indicator" type="int32">
+      <value name="not_implied" value="0"/>
+    </field>
+    <field name="security_update_action" type="string">
+      <value name="add" value="A"/>
+      <value name="delete" value="D"/>
+      <value name="modify" value="M"/>
+    </field>
+    <field name="round_lot" type="uint32"/>
+    <field name="min_trade_vol" type="uint64"/>
+    <field name="min_price_increment" type="decimal"/>
+    <field name="tick_size_denominator" type="uint32"/>
+    <field name="price_divisor" type="decimal"/>
+    <field name="min_order_qty" type="uint32"/>
+    <field name="max_order_qty" type="uint64"/>
+    <field name="instrument_id" type="string"/>
+    <field name="multi_leg_model" type="int32">
+      <value name="predefined" value="0"/>
+      <value name="user_defined" value="1"/>
+    </field>
+    <field name="multi_leg_price_method" type="int32">
+      <value name="individual" value="3"/>
+    </field>
+    <field name="currency" type="string"/>
+    <field name="settl_currency" type="string"/>
+    <field name="product" type="int32">
+      <value name="commodity" value="2"/>
+      <value name="corporate" value="3"/>
+      <value name="currency" value="4"/>
+      <value name="equity" value="5"/>
+      <value name="government" value="6"/>
+      <value name="index" value="7"/>
+      <value name="economic_indicator" value="15"/>
+      <value name="multileg" value="16"/>
+    </field>
+    <field name="security_type" type="string">
+      <value name="future" value="FUT"/>
+      <value name="spot" value="SPOT"/>
+      <value name="spot_option" value="SOPT"/>
+      <value name="future_option" value="FOPT"/>
+      <value name="derivative_forward" value="DTERM"/>
+      <value name="equity_rights" value="CASH"/>
+      <value name="option" value="OPT"/>
+      <value name="equity_forward" value="FORWARD"/>
+      <value name="etf" value="ETF"/>
+      <value name="index_non_tradable" value="INDEX"/>
+      <value name="option_exercise" value="OPTEXER"/>
+      <value name="multileg" value="MLEG"/>
+      <value name="common_stock" value="CS"/>
+      <value name="preferred_stock" value="PS"/>
+      <value name="security_loan" value="SECLOAN"/>
+      <value name="index_option" value="INDEXPOT"/>
+    </field>
+    <field name="security_sub_type" type="string">
+      <value name="fx_spot" value="4"/>
+      <value name="gold" value="10"/>
+      <value name="index" value="20"/>
+      <value name="interest_rate" value="30"/>
+      <value name="fx_rate" value="40"/>
+      <value name="foreign_debt" value="50"/>
+      <value name="agricultural" value="60"/>
+      <value name="energy" value="70"/>
+      <value name="economic_indicator" value="80"/>
+      <value name="strategy" value="90"/>
+      <value name="future_style_option" value="100"/>
+      <value name="volatilty" value="110"/>
+      <value name="swap" value="120"/>
+      <value name="mini_contract" value="130"/>
+      <value name="financial_rollover" value="140"/>
+      <value name="agricultural_rollover" value="141"/>
+      <value name="ordinary_rights" value="1001"/>
+      <value name="preferred_rights" value="1002"/>
+      <value name="common_shares" value="1003"/>
+      <value name="preferred_shares" value="1004"/>
+      <value name="class_a_shares" value="1005"/>
+      <value name="class_b_shares" value="1006"/>
+      <value name="class_c_shares" value="1007"/>
+      <value name="class_d_shares" value="1008"/>
+      <value name="ordinary_receipts" value="1009"/>
+      <value name="preferred_receipts" value="1010"/>
+      <value name="common_forward" value="1100"/>
+      <value name="flexible_forward" value="1101"/>
+      <value name="dollar_forward" value="1102"/>
+      <value name="index_points_forward" value="1103"/>
+      <value name="non_tradable_etf_nidex" value="1104"/>
+      <value name="predefined_covered_spread" value="1105"/>
+      <value name="traceable_etf" value="1106"/>
+      <value name="non_tradable_index" value="1107"/>
+      <value name="user_defined_spread" value="1108"/>
+      <value name="exchange_defined_spread" value="1109"/>
+      <value name="security_loan" value="1110"/>
+      <value name="tradable_index" value="1111"/>
+      <value name="others" value="1999"/>
+      <value name="outright_purchase" value="1300"/>
+      <value name="specific_collateral_repo" value="1301"/>
+    </field>
+    <field name="security_strategy_type" type="string"/>
+    <field name="asset" type="string"/>
+    <field name="security_desc" type="string"/>
+    <field name="no_share_issued" type="uint64"/>
+    <field name="maturity_date" type="uint32"/>
+    <field name="maturity_month_year" type="uint32"/>
+    <field name="strike_price" type="decimal"/>
+    <field name="strike_currency" type="string"/>
+    <field name="exercise_style" type="int32">
+      <value name="european" value="0"/>
+      <value name="american" value="1"/>
+    </field>
+    <field name="put_or_call" type="int32">
+      <value name="put" value="0"/>
+      <value name="call" value="1"/>
+    </field>
+    <field name="contract_multiplier" type="decimal"/>
+    <field name="contract_settl_month" type="uint32"/>
+    <field name="cfi_code" type="string"/>
+    <field name="country_of_issue" type="string"/>
+    <field name="issue_date" type="uint32"/>
+    <field name="dated_date" type="uint32"/>
+    <field name="start_date" type="uint32"/>
+    <field name="end_date" type="uint32"/>
+    <field name="settl_type" type="string"/>
+    <field name="settl_date" type="uint32"/>
+    <field name="security_validity_timestamp" type="uint64"/>
+    <field name="market_segment_id" type="string"/>
+    <field name="governance_indicator" type="string">
+      <value name="level_1" value="N1"/>
+      <value name="level_2" value="N2"/>
+      <value name="level_3" value="N3"/>
+      <value name="new_market" value="NM"/>
+      <value name="mais_market" value="MA"/>
+      <value name="soma_market" value="MB"/>
+    </field>
+    <field name="corporate_action_event_id" type="int32"/>
+    <field name="security_match_type" type="int32">
+      <value name="issuing_or_buy_back_auction" value="8"/>
+    </field>
+    <field name="buyer" type="string"/>
+    <field name="seller" type="string"/>
+    <field name="position" type="uint32"/>
+    <field name="order_id" type="string"/>
+    <field name="last_trade_date" type="uint32"/>
+    <field name="price_adjust_method" type="uint32">
+      <value name="no_adjustment" value="0"/>
+      <value name="theoretical_ex" value="1"/>
+      <value name="theoretical_ex_greater_than_with" value="2"/>
+      <value name="theoretical_ex_different_stocks" value="3"/>
+      <value name="market_arbitrated" value="4"/>
+    </field>
+    <field name="settl_flag" type="string">
+      <value name="daily" value="0"/>
+      <value name="session" value="1"/>
+      <value name="preliminary" value="3"/>
+      <value name="previous_business_day" value="4"/>
+      <value name="theoretical_price" value="5"/>
+    </field>
+    <field name="tick_direction" type="uint32">
+      <value name="plus" value="0"/>
+      <value name="zero_plus" value="1"/>
+      <value name="minus" value="2"/>
+      <value name="zero_minus" value="3"/>
+    </field>
+    <field name="variation" type="decimal"/>
+    <field name="price_band_type" type="string">
+      <value name="hard_limit" value="1"/>
+      <value name="auction_limit" value="2"/>
+      <value name="rejection_band" value="3"/>
+      <value name="static_limit" value="4"/>
+    </field>
+    <field name="price_limit_type" type="uint32">
+      <value name="price_unit" value="0"/>
+      <value name="ticks" value="1"/>
+      <value name="percentage" value="2"/>
+    </field>
+    <field name="low_limit_price" type="decimal"/>
+    <field name="high_limit_price" type="decimal"/>
+    <field name="trading_reference_price" type="decimal"/>
+    <field name="price_band_midpoint_price_type" type="uint32">
+      <value name="last_traded" value="0"/>
+      <value name="complementary" value="1"/>
+      <value name="theoretical" value="2"/>
+    </field>
+    <field name="avg_daily_traded_qty" type="uint64"/>
+    <field name="max_trade_vol" type="uint64"/>
+    <field name="security_group" type="string"/>
+    <field name="group_phase" type="string">
+      <value name="pause" value="02"/>
+      <value name="close" value="04"/>
+      <value name="open" value="17"/>
+      <value name="pre_close" value="18"/>
+      <value name="pre_open" value="21"/>
+      <value name="closing_call" value="101"/>
+    </field>
+    <field name="instrument_state" type="uint32">
+      <value name="pause" value="02"/>
+      <value name="close" value="04"/>
+      <value name="open" value="17"/>
+      <value name="forbidden" value="18"/>
+      <value name="unknown" value="20"/>
+      <value name="reserved" value="21"/>
+      <value name="closing_call" value="101"/>
+    </field>
+    <field name="open_time" type="uint64"/>
+    <field name="trading_event" type="uint32">
+      <value name="change_of_trading_session" value="4"/>
+      <value name="separate_from_group" value="101"/>
+      <value name="following_group" value="102"/>
+    </field>
+    <field name="settl_price_type" type="string">
+      <value name="final" value="1"/>
+      <value name="theoretical" value="2"/>
+      <value name="updated" value="3"/>
+    </field>
+    <field name="price_type" type="string">
+      <value name="percentage" value="1"/>
+      <value name="per_unit" value="2"/>
+      <value name="fixed" value="3"/>
+    </field>
+    <field name="quantity_volume" type="uint64"/>
+    <field name="trade_id" type="string"/>
+    <field name="financial_volume" type="decimal"/>
+    <field name="number_of_trades" type="uint32"/>
+    <field name="inst_attrib_type" type="uint32">
+      <value name="security_details" value="24"/>
+      <value name="gtd_gtc_eligibility" value="34"/>
+    </field>
+    <field name="inst_attrib_value" type="string">
+      <value name="electronic_match_eligible" value="1"/>
+      <value name="block_trade_eligible" value="3"/>
+      <value name="negotiated_quote_eligible" value="17"/>
+      <value name="gtd_gtc_eligible" value="1"/>
+    </field>
+    <field name="lot_type" type="int32">
+      <value name="odd_lot" value="1"/>
+      <value name="round_lot" value="2"/>
+      <value name="block_lot" value="3"/>
+    </field>
+    <field name="min_lot_size" type="uint32"/>
+    <field name="start_tick_price_range" type="decimal"/>
+    <field name="end_tick_price_range" type="decimal"/>
+    <field name="tick_increment" type="decimal"/>
+    <field name="tick_rule_type" type="int32"/>
+    <field name="leg_ratio_qty" type="int32"/>
+    <field name="leg_symbol" type="string"/>
+    <field name="leg_security_id" type="uint64"/>
+    <field name="leg_security_id_source" type="string"/>
+    <field name="leg_security_type" type="string" >
+      <value name="corporate_fixed_income" value="CORP"/>
+      <value name="future" value="FUT"/>
+      <value name="spot" value="SPOT"/>
+      <value name="spot_option" value="SOPT"/>
+      <value name="future_option" value="FOPT"/>
+      <value name="derivative_forward" value="DTERM"/>
+      <value name="equity_rights" value="CASH"/>
+      <value name="option" value="OPT"/>
+      <value name="equity_forward" value="FORWARD"/>
+      <value name="etf" value="ETF"/>
+      <value name="index_non_tradable" value="INDEX"/>
+      <value name="option_exercise" value="OPTEXER"/>
+      <value name="multileg" value="MLEG"/>
+      <value name="common_stock" value="CS"/>
+      <value name="preferred_stock" value="PS"/>
+      <value name="security_loan" value="SECLOAN"/>
+      <value name="index_option" value="INDEXPOT"/>
+    </field>
+    <field name="leg_side" type="int32">
+      <value name="buy" value="1"/>
+      <value name="sell" value="2"/>
+    </field>
+    <field name="leg_security_exchange" type="string"/>
+  </fields>
+
+  <template name="auction_imbalance">
+    <field name="seqnum"/>
+    <field name="update_action"/>
+    <field name="security_id"/>
+    <field name="entry_size"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+    <field name="trade_condition"/>
+  </template>
+  
+  <template name="bid">
+    <field name="seqnum"/>
+    <field name="update_action"/>
+    <field name="security_id"/>
+    <field name="entry_price"/>
+    <field name="entry_size"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+    <field name="buyer"/>
+    <field name="position"/>
+    <field name="order_id"/>
+  </template>
+  
+  <template name="close">
+    <field name="seqnum"/>
+    <field name="security_id"/>
+    <field name="entry_price"/>
+    <field name="last_trade_date"/>
+    <field name="price_adjust_method"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+    <field name="settl_flag"/>
+  </template>
+  
+  <template name="high">
+    <field name="seqnum"/>
+    <field name="update_action"/>
+    <field name="security_id"/>
+    <field name="entry_price"/>
+    <field name="entry_size"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+  </template>
+  
+  <template name="index">
+    <field name="seqnum"/>
+    <field name="update_action"/>
+    <field name="security_id"/>
+    <field name="entry_price"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+    <field name="tick_direction"/>
+  </template>
+  
+  <template name="low">
+    <field name="seqnum"/>
+    <field name="update_action"/>
+    <field name="security_id"/>
+    <field name="entry_price"/>
+    <field name="entry_size"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+  </template>
+  
+  <template name="offer">
+    <field name="seqnum"/>
+    <field name="update_action"/>
+    <field name="security_id"/>
+    <field name="entry_price"/>
+    <field name="entry_size"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+    <field name="seller"/>
+    <field name="position"/>
+    <field name="order_id"/>
+  </template>
+  
+  <template name="open">
+    <field name="seqnum"/>
+    <field name="update_action"/>
+    <field name="security_id"/>
+    <field name="entry_price"/>
+    <field name="entry_size"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+    <field name="settl_flag"/>
+    <field name="variation"/>
+  </template>
+  
+  <template name="open_interest">
+    <field name="seqnum"/>
+    <field name="security_id"/>
+    <field name="entry_price"/>
+    <field name="entry_size"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+  </template>
+  
+  <template name="price_band">
+    <field name="seqnum"/>
+    <field name="security_id"/>
+    <field name="price_band_type"/>
+    <field name="price_limit_type"/>
+    <field name="low_limit_price"/>
+    <field name="high_limit_price"/>
+    <field name="trading_reference_price"/>
+    <field name="price_band_midpoint_price_type"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+  </template>
+  
+  <template name="quantity_band">
+    <field name="seqnum"/>
+    <field name="security_id"/>
+    <field name="low_limit_price"/>
+    <field name="high_limit_price"/>
+    <field name="trading_reference_price"/>
+    <field name="price_band_midpoint_price_type"/>
+    <field name="avg_daily_traded_qty"/>
+    <field name="max_trade_vol"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+  </template>
+  
+  <template name="security_definition">
+    <sequence name="appl_id">
+
+      <sequence name="feed_type">
+        <field name="feed_type"/>
+        <field name="market_depth"/>
+      </sequence>
+
+      <field name="appl_id"/>
+    </sequence>
+
+    <sequence name="security_alt_id">
+      <field name="security_id"/>
+      <field name="security_id_source"/>
+    </sequence>
+
+    <sequence name="underlying">
+      <field name="symbol"/>
+      <field name="security_id"/>
+      <field name="security_id_source"/>
+      <field name="security_exchange"/>
+      <field name="index_pct"/>
+      <field name="index_theoretical_qty"/>
+    </sequence>
+
+    <sequence name="instr_attrib">
+      <field name="inst_attrib_type"/>
+      <field name="inst_attrib_value"/>
+    </sequence>
+
+    <sequence name="tick_rule">
+      <field name="start_tick_price_range"/>
+      <field name="end_tick_price_range"/>
+      <field name="tick_increment"/>
+      <field name="tick_rule_type"/>
+    </sequence>
+
+    <sequence name="leg">
+      <field name="leg_symbol"/>
+      <field name="leg_security_id"/>
+      <field name="leg_security_id_source"/>
+      <field name="leg_ratio_qty"/>
+      <field name="leg_security_type"/>
+      <field name="leg_side"/>
+      <field name="leg_security_exchange"/>
+    </sequence>
+
+    <sequence name="lot">
+      <field name="lot_type"/>
+      <field name="min_lot_size"/>
+    </sequence>
+
+    <field name="seqnum"/>
+    <field name="symbol"/>
+    <field name="security_id"/>
+    <field name="security_id_source"/>
+    <field name="security_exchange"/>
+    <field name="implied_market_indicator"/>
+    <field name="security_update_action"/>
+    <field name="round_lot"/>
+    <field name="min_trade_vol"/>
+    <field name="min_price_increment"/>
+    <field name="tick_size_denominator"/>
+    <field name="price_divisor"/>
+    <field name="min_order_qty"/>
+    <field name="max_order_qty"/>
+    <field name="instrument_id"/>
+    <field name="multi_leg_model"/>
+    <field name="multi_leg_price_method"/>
+    <field name="currency"/>
+    <field name="settl_currency"/>
+    <field name="product"/>
+    <field name="security_type"/>
+    <field name="security_sub_type"/>
+    <field name="security_strategy_type"/>
+    <field name="asset"/>
+    <field name="security_desc"/>
+    <field name="no_share_issued"/>
+    <field name="maturity_date"/>
+    <field name="maturity_month_year"/>
+    <field name="strike_price"/>
+    <field name="strike_currency"/>
+    <field name="exercise_style"/>
+    <field name="put_or_call"/>
+    <field name="contract_multiplier"/>
+    <field name="contract_settl_month"/>
+    <field name="cfi_code"/>
+    <field name="country_of_issue"/>
+    <field name="issue_date"/>
+    <field name="dated_date"/>
+    <field name="start_date"/>
+    <field name="end_date"/>
+    <field name="settl_type"/>
+    <field name="settl_date"/>
+    <field name="security_validity_timestamp"/>
+    <field name="market_segment_id"/>
+    <field name="governance_indicator"/>
+    <field name="corporate_action_event_id"/>
+    <field name="security_match_type"/>
+    <field name="security_group"/>
+  </template>
+  
+  <template name="security_status">
+    <field name="seqnum"/>
+    <field name="security_id"/>
+    <field name="security_group"/>
+    <field name="group_phase"/>
+    <field name="instrument_state"/>
+    <field name="open_time"/>
+    <field name="trading_event"/>
+  </template>
+  
+  <template name="settlement">
+    <field name="seqnum"/>
+    <field name="security_id"/>
+    <field name="entry_price"/>
+    <field name="price_type"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+    <field name="settl_flag"/>
+    <field name="settl_price_type"/>
+  </template>
+  
+  <template name="trade">
+    <field name="seqnum"/>
+    <field name="update_action"/>
+    <field name="security_id"/>
+    <field name="entry_price"/>
+    <field name="entry_size"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+    <field name="tick_direction"/>
+    <field name="buyer"/>
+    <field name="seller"/>
+    <field name="variation"/>
+    <field name="quantity_volume"/>
+    <field name="trade_id"/>
+    <field name="trade_condition"/>
+  </template>
+  
+  <template name="trade_volume">
+    <field name="seqnum"/>
+    <field name="security_id"/>
+    <field name="financial_volume"/>
+    <field name="number_of_trades"/>
+    <field name="quantity_volume"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+    <field name="currency"/>
+  </template>
+  
+  <template name="vwap">
+    <field name="seqnum"/>
+    <field name="update_action"/>
+    <field name="security_id"/>  
+    <field name="entry_price"/>
+    <field name="entry_size"/>
+    <field name="entry_date"/>
+    <field name="entry_time"/>
+  </template>
+
+  <template name="snapshot">
+    <field ref="single" name="auction_imbalance"/>
+    <field ref="multiple" name="bid"/>
+    <field ref="single" name="close"/>
+    <field ref="single" name="high"/>
+    <field ref="single" name="index"/>
+    <field ref="single" name="low"/>
+    <field ref="multiple" name="offer"/>
+    <field ref="single" name="open"/>
+    <field ref="single" name="open_interest"/>
+    <field ref="single" name="price_band"/>
+    <field ref="single" name="quantity_band"/>
+    <field ref="single" name="security_status"/>
+    <field ref="single" name="settlement"/>
+    <field ref="single" name="trade"/>
+    <field ref="single" name="trade_volume"/>
+    <field ref="single" name="vwap"/>
+  </template>
+
+</templates>

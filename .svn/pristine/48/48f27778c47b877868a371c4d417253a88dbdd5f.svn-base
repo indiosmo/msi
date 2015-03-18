@@ -1,0 +1,20 @@
+<templates>
+	<template>
+			<string name="ApplVerID" id="1128"/>
+			<string name="MsgType" id="35"/>
+			<uInt32 name="MsgSeqNum" id="34"/>
+			<uInt64 name="SendingTime" id="52"/>
+			<string name="SecurityGroup" id="1151" presence="optional"/>
+      <string name="Symbol" id="55" presence="optional"/>
+			<uInt64 name="SecurityID" id="48" presence="optional"/>
+			<uInt32 name="SecurityIDSource" id="22" presence="optional"/>
+			<string name="SecurityExchange" id="207" presence="optional"/>
+			<string name="TradingSessionSubID" id="625" presence="optional"/>
+			<uInt32 name="SecurityTradingStatus" id="326" presence="optional"/>
+			<uInt32 name="TradingSessionID" id="336" presence="optional"/>
+			<uInt64 name="TradSesOpenTime" id="342" presence="optional"/>
+			<uInt64 name="TransactTime" id="60"/>
+			<uInt32 name="TradeDate" id="75"/>
+			<uInt32 name="SecurityTradingEvent" id="1174" presence="optional"/>
+	</template>
+</templates>

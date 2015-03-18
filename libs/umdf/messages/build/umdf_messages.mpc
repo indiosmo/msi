@@ -1,0 +1,18 @@
+project(*): msi_lib {
+
+  sharedname = msi_umdf_messages
+
+  dynamicflags += UMDF_MESSAGES_BUILD_DLL
+
+  pch_header = msi/msi_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/msi_pch.cpp
+
+  Source_Files {
+    $(MSI_ROOT)/libs/umdf/messages/src
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/msi/umdf/messages
+  }
+
+}

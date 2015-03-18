@@ -1,0 +1,17 @@
+project(*): msi_lib, boost {
+
+  sharedname = msi_logging
+
+  dynamicflags += LOGGING_BUILD_DLL
+
+  pch_header = msi/msi_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/msi_pch.cpp
+
+  Source_Files {
+    $(MSI_ROOT)/libs/logging/src
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/msi/logging
+  }
+}

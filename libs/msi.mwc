@@ -1,0 +1,31 @@
+workspace {
+  cmdline += -use_env
+  cmdline += -include mpc
+  cmdline += -feature_file mpc/msi.features
+  cmdline += -value_project libout=$(MSI_ROOT)/lib
+  cmdline += -value_project libpaths+=$(MSI_ROOT)/lib
+
+  concepts/build/*.mpc
+  logging/build/*.mpc
+  marketdata/common/build/*.mpc
+  marketdata/messages/build/*.mpc
+  marketdata/serialization/build/*.mpc
+  network/build/*.mpc
+  umdf/recovery/build/*.mpc
+  umdf/receiver/build/*.mpc
+  umdf/messages/build/*.mpc
+  umdf/decoder/build/*.mpc
+  umdf/decoder/quickfast/build/*.mpc
+  umdf/adapter/build/*.mpc
+  umdf/ticker_plant/build/*.mpc
+
+  exclude(!prop:windows) {
+    //C++/Cli Visual Studio Projects
+
+    //C# Visual Studio Projects
+    csharp {
+      cmdline += -language csharp
+    }
+  }
+}
+

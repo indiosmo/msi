@@ -1,0 +1,9 @@
+project {
+  libpaths += $(MSI_ROOT)/lib
+  includes += $(MSI_ROOT)/
+
+  specific(vc12) {
+    compile_flags += /Zm120
+  }
+
+}

@@ -1,0 +1,23 @@
+project(*): msi_test, boost, qfast {
+
+  exename = concepts
+
+  pch_header = msi/msi_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/msi_pch.cpp
+
+  libs += msi_logging
+  after += logging
+  libs += msi_network
+  after += network
+  libs += msi_umdf_receiver
+  after += umdf_receiver
+
+  Source_Files {
+    $(MSI_ROOT)/libs/concepts/src
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/msi/concepts
+  }
+
+}

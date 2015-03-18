@@ -1,0 +1,13 @@
+<templates>
+    <template name="MDSequenceReset" id="122" dictionary="122">
+      <string name="MsgType" id="35">
+        <constant value="4"/>
+      </string>
+      <uInt32 name="MsgSeqNum" id="34"/>
+      <uInt64 name="SendingTime" id="52"/>
+      <string name="ApplVerID" id="1128" presence="optional">
+        <constant value="9"/>
+      </string>
+      <uInt32 name="NewSeqNo" id="36"/>
+    </template>
+</templates>

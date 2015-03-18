@@ -1,0 +1,27 @@
+project(*): msi_lib, boost, qfix {
+
+  sharedname = msi_umdf_recovery
+
+  dynamicflags += RECOVERY_BUILD_DLL
+
+  pch_header = msi/msi_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/msi_pch.cpp
+
+  libs += msi_logging
+  after += logging
+  libs += msi_network
+  after += network
+  libs += msi_marketdata_common
+  after += marketdata_common
+
+
+  Source_Files {
+    $(MSI_ROOT)/libs/umdf/recovery/src
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/msi/umdf/recovery
+    $(MSI_ROOT)/msi/umdf/recovery/fix44
+  }
+
+}

@@ -1,0 +1,38 @@
+<templates>
+<template>
+		<string name="ApplVerID" id="1128"/>
+		<string name="MsgType" id="35"/>
+		<uInt32 name="MsgSeqNum" id="34"/>
+		<uInt64 name="SendingTime" id="52"/>
+		<uInt64 name="OrigTime" id="42" presence="optional"/>
+		<string name="NewsSource" id="6940" presence="optional"/>
+		<string name="NewsID" id="1472" presence="optional"/>
+		<string name="LanguageCode" id="1474" presence="optional"/>
+		<string name="Headline" id="148" presence="optional"/>
+		<string name="URLLink" id="149" presence="optional"/>
+		<uInt32 name="EncodedHeadlineLen" id="358" presence="optional"/>
+		<string name="EncodedHeadline" id="359" presence="optional" charset="unicode"/>
+		
+		<sequence name="RelatedSym" presence="optional">
+			<length name="NoRelatedSym" id="146"/>
+			<uInt64 name="SecurityID" id="48"/>
+			<uInt32 name="SecurityIDSource" id="22"/>
+			<string name="SecurityExchange" id="207"/>
+		</sequence>
+
+    <sequence name="RoutingIds" presence="optional">
+      <length name="NoRoutingIDs" id="215"/>
+      <uInt32 name="RoutingType" id="216" presence="optional"/>
+      <string name="RoutingID" id="217" presence="optional"/>
+    </sequence>
+		
+		<sequence name="LinesOfText" presence="optional">
+			<length name="NoLinesOfText" id="33"/>
+			<string name="Text" id="58"/>
+			<uInt32 name="EncodedTextLen" id="354" presence="optional"/>
+			<string name="EncodedText" id="355" presence="optional" charset="unicode">
+        <alttype name="string"/>
+      </string>
+		</sequence>
+	</template>
+</templates>	

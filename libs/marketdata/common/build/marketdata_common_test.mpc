@@ -1,0 +1,21 @@
+project(*): msi_test, boost {
+
+  exename = marketdatacommontest
+  
+  pch_header = msi/msi_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/msi_pch.cpp
+
+  libs += msi_logging
+  after += logging
+  libs += msi_marketdata_common
+  after += marketdata_common
+
+  Source_Files {
+    $(MSI_ROOT)/libs/marketdata/common/test
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/libs/marketdata/common/test
+  }
+
+}

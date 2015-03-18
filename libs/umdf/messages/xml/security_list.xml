@@ -1,0 +1,113 @@
+<templates>
+	<template>
+			<string name="MsgType" id="35"/>
+			<string name="ApplVerID" id="1128"/>
+			<uInt32 name="MsgSeqNum" id="34"/>
+			<string name="SendingTime" id="52"/>
+			<uInt32 name="TotNoRelatedSym" id="393"/>
+			<string name="LastFragment" id="893"/>
+			<sequence name="RelatedSym">
+				<length name="NoRelatedSym" id="146"/>
+				<string name="Symbol" id="55"/>
+				<uInt64 name="SecurityID" id="48"/>
+				<string name="SecurityIDSource" id="22"/>
+				<string name="SecurityExchange" id="207"/>
+				<sequence name="ApplIDs">
+					<length name="NoApplIDs" id="1351"/>
+					<string name="ApplID" id="1180"/>
+					<sequence name="FeedTypes" presence="optional">
+						<length name="NoMDFeedTypes" id="1141"/>
+						<string name="MDFeedType" id="1022"/>
+						<uInt32 name="MarketDepth" id="264"/>
+					</sequence>
+				</sequence>
+				<sequence name="SecurityAltIDs" presence="optional">
+					<length name="NoSecurityAltID" id="454"/>
+					<string name="SecurityAltID" id="455"/>
+					<string name="SecurityAltIDSource" id="456"/>
+				</sequence>
+				<sequence name="Underlyings" presence="optional">
+					<length name="NoUnderlyings" id="711"/>
+					<string name="UnderlyingSymbol" id="311"/>
+					<uInt64 name="UnderlyingSecurityID" id="309"/>
+					<string name="UnderlyingSecurityIDSource" id="305"/>
+					<string name="UnderlyingSecurityExchange" id="308"/>
+					<decimal name="IndexPct" id="6919" presence="optional"/>
+					<decimal name="IndexTheoreticalQty" id="37021" presence="optional"/>
+				</sequence>
+				<int32 name="ImpliedMarketIndicator" id="1144" presence="optional"/>
+				<sequence name="InstrAttrib" presence="optional">
+					<length name="NoInstrAttrib" id="870"/>
+					<int32 name="InstAttribType" id="871" presence="optional"/>
+					<string name="InstAttribValue" id="872" presence="optional"/>
+				</sequence>
+				<sequence name="TickRules" presence="optional">
+					<length name="NoTickRules" id="1205"/>
+					<decimal name="StartTickPriceRange" id="1206" presence="optional"/>
+					<decimal name="EndTickPriceRange" id="1207" presence="optional"/>
+					<decimal name="TickIncrement" id="1208" presence="optional"/>
+					<int32 name="TickRuleType" id="1209" presence="optional"/>
+				</sequence>
+				
+				<sequence name="Legs" presence="optional">
+					<length name="NoLegs" id="555"/>
+					<string name="LegSymbol" id="600"/>
+					<uInt64 name="LegSecurityID" id="602"/>
+					<string name="LegSecurityIDSource" id="603"/>
+					<int32 name="LegRatioQty" id="623"/>
+					<string name="LegSecurityType" id="609"/>
+					<int32 name="LegSide" id="624"/>
+					<string name="LegSecurityExchange" id="616"/>
+				</sequence>
+				<string name="SecurityUpdateAction" id="980"/>
+        <uInt32 name="RoundLot" id="561"/>
+        <uInt64 name="MinTradeVol" id="562" presence="optional"/>
+				
+				<sequence name="Lots" presence="optional">
+					<length name="NoLotTypeRules" id="1234"/>
+					<int32 name="LotType" id="1093" presence="optional"/>
+					<uInt32 name="MinLotSize" id="1231" presence="optional"/>
+				</sequence>
+				
+				<decimal name="MinPriceIncrement" id="969" presence="optional"/>
+				<uInt32 name="TickSizeDenominator" id="5151" presence="optional"/>
+				<decimal name="PriceDivisor" id="37012" presence="optional"/>
+				<uInt32 name="MinOrderQty" id="9749" presence="optional"/>
+				<uInt64 name="MaxOrderQty" id="9748" presence="optional"/>
+        <string name="InstrumentID" id="9219"/>
+				<int32 name="MultiLegModel" id="1377" presence="optional"/>
+				<int32 name="MultiLegPriceMethod" id="1378" presence="optional"/>
+				<string name="Currency" id="15" presence="optional"/>
+				<string name="SettlCurrency" id="120" presence="optional"/>
+				<int32 name="Product" id="460"/>
+				<string name="SecurityType" id="167"/>
+				<string name="SecuritySubType" id="762"/>
+				<string name="SecurityStrategyType" id="7534" presence="optional"/>
+				<string name="Asset" id="6937" presence="optional"/>
+				<string name="SecurityDesc" id="107"/>
+				<uInt64 name="NoShareIssued" id="7595" presence="optional"/>
+				<uInt32 name="MaturityDate" id="541" presence="optional"/>
+				<uInt32 name="MaturityMonthYear" id="200" presence="optional"/>
+				<decimal name="StrikePrice" id="202" presence="optional"/>
+				<string name="StrikeCurrency" id="947" presence="optional"/>
+				<int32 name="ExerciseStyle" id="1194" presence="optional"/>
+				<int32 name="PutOrCall" id="201" presence="optional"/>
+				<decimal name="ContractMultiplier" id="231" presence="optional"/>
+				<uInt32 name="ContractSettlMonth" id="667" presence="optional"/>
+				<string name="CFICode" id="461"/>
+				<string name="CountryOfIssue" id="470"/>
+				<uInt32 name="IssueDate" id="225"/>
+				<uInt32 name="DatedDate" id="873" presence="optional"/>
+				<uInt32 name="StartDate" id="916" presence="optional"/>
+				<uInt32 name="EndDate" id="917" presence="optional"/>
+				<string name="SettlType" id="63" presence="optional"/>
+				<uInt32 name="SettlDate" id="64" presence="optional"/>
+				<uInt64 name="SecurityValidityTimestamp" id="6938"/>
+				<string name="MarketSegmentID" id="1300" presence="optional"/>
+				<string name="GovernanceIndicator" id="37011" presence="optional"/>
+				<int32 name="CorporateActionEventID" id="37010" presence="optional"/>
+				<string name="SecurityGroup" id="1151"/>
+				<int32 name="SecurityMatchType" id="37015" presence="optional"/>
+			</sequence>
+	</template>		
+</templates>

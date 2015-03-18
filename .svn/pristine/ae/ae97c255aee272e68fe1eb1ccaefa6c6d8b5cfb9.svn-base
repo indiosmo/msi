@@ -1,0 +1,32 @@
+project(*): msi_lib, boost, qfast {
+
+  sharedname = msi_umdf_adapter
+
+  dynamicflags += UMDF_ADAPTER_BUILD_DLL
+
+  pch_header = msi/umdf/decoder/quickfast/umdf_decoder_quickfast_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/umdf/decoder/quickfast/umdf_decoder_quickfast_pch.cpp
+
+  libs += msi_logging
+  after += logging
+  libs += msi_network
+  after += network
+  libs += msi_umdf_decoder_quickfast
+  after += umdf_decoder_quickfast
+  libs += msi_umdf_messages
+  after += umdf_messages
+  libs += msi_marketdata_common
+  after += marketdata_common
+  libs += msi_marketdata_messages
+  after += marketdata_messages
+
+
+  Source_Files {
+    $(MSI_ROOT)/libs/umdf/adapter/src
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/msi/umdf/adapter
+  }
+
+}

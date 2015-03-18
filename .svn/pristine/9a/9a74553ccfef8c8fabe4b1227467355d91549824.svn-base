@@ -1,0 +1,19 @@
+project(*): msi_test, boost {
+
+  exename = loggingtest
+  
+  pch_header = msi/msi_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/msi_pch.cpp
+
+  libs += msi_logging
+  after += logging
+
+  Source_Files {
+    $(MSI_ROOT)/libs/logging/test
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/libs/logging/test
+  }
+
+}

@@ -1,0 +1,83 @@
+<templates>
+	<template>
+		<string name="MsgType" id="35"/>
+		<uInt32 name="MsgSeqNum" id="34"/>
+		<string name="ApplVerID" id="1128"/>
+		<uInt64 name="SendingTime" id="52"/>
+		<uInt32 name="LastMsgSeqNumProcessed" id="369"/>
+		<uInt32 name="TotNumReports" id="911" presence="optional"/>
+		<uInt32 name="TradeDate" id="75" presence="optional"/>
+		<string name="MDReqID" id="262" presence="optional"/>
+		<int32 name="MarketDepth" id="264" presence="optional"/>
+		<uInt32 name="RptSeq" id="83"/>
+		<uInt64 name="SecurityID" id="48"/>
+		<uInt32 name="SecurityIDSource" id="22"/>
+		<string name="SecurityExchange" id="207"/>
+
+		<sequence name="MDEntries">
+			<length name="NoMDEntries" id="268"/>
+			<string name="MDEntryType" id="269"/>
+			<string name="Currency" id="15" presence="optional"/>
+			<decimal name="MDEntryPx" id="270" presence="optional"/>
+			<decimal name="MDEntryInterestRate" id="37014" presence="optional"/>
+			<uInt32 name="IndexSeq" id="37100" presence="optional"/>
+			<int64 name="MDEntrySize" id="271" presence="optional">
+        <alttype name="int32"/>
+      </int64>
+			<uInt64 name="TradeVolume" id="1020" presence="optional">
+        <alttype name="uInt32"/>
+      </uInt64>
+			<uInt32 name="MDEntryDate" id="272" presence="optional"/>
+			<string name="MDEntryTime" id="273" presence="optional"/>
+			<uInt32 name="MDInsertDate" id="37016" presence="optional"/>
+			<uInt32 name="MDInsertTime" id="37017" presence="optional"/>
+			<string name="TickDirection" id="274" presence="optional"/>
+			<decimal name="NetChgPrevDay" id="451" presence="optional"/>
+			<string name="MDStreamID" id="1500" presence="optional"/>
+			<string name="PriceType" id="423" presence="optional"/>
+			<string name="TradingSessionSubID" id="625" presence="optional"/>
+			<uInt32 name="SecurityTradingStatus" id="326" presence="optional"/>
+			<uInt64 name="TradSesOpenTime" id="342" presence="optional">
+        <alttype name="uInt32"/>
+      </uInt64>
+			<uInt32 name="TradingSessionID" id="336" presence="optional"/>
+			<uInt32 name="SecurityTradingEvent" id="1174" presence="optional"/>
+			<string name="TradeCondition" id="277" presence="optional"/>
+			<uInt32 name="OpenCloseSettlFlag" id="286" presence="optional">
+        <alttype name="string"/>
+      </uInt32>
+			<string name="OrderID" id="37" presence="optional"/>
+			<string name="TradeID" id="1003" presence="optional"/>
+			<string name="MDEntryBuyer" id="288" presence="optional"/>
+			<string name="MDEntrySeller" id="289" presence="optional"/>
+			<string name="QuoteCondition" id="276" presence="optional"/>
+			<uInt32 name="NumberOfOrders" id="346" presence="optional"/>
+			<uInt32 name="MDEntryPositionNo" id="290" presence="optional"/>
+      <uInt32 name="DayCumQty" id="425" presence="optional"/>
+			<uInt32 name="SellerDays" id="287" presence="optional"/>
+			<uInt32 name="SettPriceType" id="731" presence="optional"/>
+			<uInt32 name="LastTradeDate" id="9325" presence="optional"/>
+			<uInt32 name="PriceAdjustmentMethod" id="37013" presence="optional"/>
+			<uInt32 name="PriceLimitType" id="1306" presence="optional"/>
+			<decimal name="LowLimitPrice" id="1148" presence="optional"/>
+			<decimal name="HighLimitPrice" id="1149" presence="optional"/>
+			<decimal name="TradingReferencePrice" id="1150" presence="optional"/>
+			<uInt32 name="PriceBandMidpointPriceType" id="37008" presence="optional"/>
+			<uInt64 name="AvgDailyTradedQty" id="37003" presence="optional"/>
+			<uInt64 name="ExpireDate" id="432" presence="optional"/>
+			<uInt64 name="EarlyTermination" id="37019" presence="optional"/>
+			<uInt64 name="MaxTradeVol" id="1140" presence="optional"/>
+			<string name="PriceBandType" id="6939" presence="optional"/>
+			<sequence name="Underlyings" presence="optional">
+				<length name="NoUnderlyings" id="711"/>
+				<uInt64 name="UnderlyingSecurityID" id="309"/>
+				<uInt32 name="UnderlyingSecurityIDSource" id="305"/>
+				<string name="UnderlyingSecurityExchange" id="308"/>
+				
+				<decimal name="UnderlyingPx" id="810"/>
+				<uInt32 name="UnderlyingPxType" id="37018" presence="optional"/>
+			</sequence>
+		</sequence>
+	</template>
+
+</templates>

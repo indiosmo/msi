@@ -1,0 +1,28 @@
+project(*): msi_lib, boost {
+
+  sharedname = msi_umdf_receiver
+
+  dynamicflags += RECEIVER_BUILD_DLL
+
+  pch_header = msi/msi_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/msi_pch.cpp
+
+  libs += msi_logging
+  after += logging
+  libs += msi_network
+  after += network
+  libs += msi_marketdata_common
+  after += marketdata_common
+  libs += msi_umdf_recovery
+  after += umdf_recovery
+
+
+  Source_Files {
+    $(MSI_ROOT)/libs/umdf/receiver/src
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/msi/umdf/receiver
+  }
+
+}

@@ -1,0 +1,25 @@
+project(*): msi_test, boost {
+
+  exename = umdfreceivertest 
+  
+  pch_header = msi/msi_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/msi_pch.cpp
+
+  libs += Ws2_32
+
+  libs += msi_umdf_receiver
+  after += umdf_receiver
+  libs += msi_logging
+  after += logging
+  libs += msi_umdf_recovery
+  after += umdf_recovery
+
+  Source_Files {
+    $(MSI_ROOT)/libs/umdf/receiver/test
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/libs/umdf/receiver/test
+  }
+
+}

@@ -1,0 +1,41 @@
+<templates>
+    <template name="MDHeartbeat_144" id="144" dictionary="144">
+    <!--desc="PREVIOUS VERSION WAS 129"-->
+    <string name="ApplVerID" id="1128">
+      <constant value="9"/>
+    </string>
+    <string name="MsgType" id="35">
+      <constant value="0"/>
+    </string>
+    <uInt32 name="MsgSeqNum" id="34"/>
+    <uInt64 name="SendingTime" id="52"/>
+  </template>
+
+  <template name="MDHeartbeat_129" id="129" dictionary="129">
+    <!--desc="PREVIOUS VERSION WAS 101"-->
+    <string name="ApplVerID" id="1128">
+      <constant value="9"/>
+    </string>
+    <string name="MessageType" id="35">
+      <constant value="0"/>
+    </string>
+    <uInt32 name="MsgSeqNum" id="34"/>
+    <uInt64 name="SendingTime" id="52"/>
+  </template>
+
+  <template name="MDHeartbeat_101" id="101" dictionary="101">
+    <!--desc="DEPRECATED. USE VERSION 144"-->
+    <!--desc="USED FOR PUMA DERIVATIVES 1.6.X"-->
+    <string name="ApplVerID" id="1128">
+      <constant value="9"/>
+    </string>
+    <string name="MessageType" id="35">
+      <constant value="0"/>
+    </string>
+    <uInt32 name="MsgSeqNum" id="34"/>
+    <uInt64 name="SendingTime" id="52"/>
+    <string name="PosDupFlag" id="43" presence="optional">
+      <default/>
+    </string>
+  </template>
+</templates>

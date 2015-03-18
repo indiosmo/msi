@@ -1,0 +1,21 @@
+project(*): msi_lib {
+
+  sharedname = msi_marketdata_serialization
+
+  dynamicflags += MARKETDATA_SERIALIZATION_BUILD_DLL
+
+  pch_header = msi/msi_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/msi_pch.cpp
+
+  libs += msi_marketdata_messages
+  after += marketdata_messages
+
+  Source_Files {
+    $(MSI_ROOT)/libs/marketdata/serialization/src
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/msi/marketdata/serialization
+  }
+
+}

@@ -1,0 +1,163 @@
+<templates>
+  <template name="MDNewsMessage_143" id="143" dictionary="143"> 
+    <!--desc="PREVIOUS VERSION WAS 137"-->
+    <string name="ApplVerID" id="1128">
+      <constant value="9"/>
+    </string>
+    <string name="MsgType" id="35">
+      <constant value="B"/>
+    </string>
+    <uInt32 name="MsgSeqNum" id="34"/>
+    <uInt64 name="SendingTime" id="52"/>
+    <uInt64 name="OrigTime" id="42" presence="optional">
+      <copy/>
+    </uInt64>
+    <string name="NewsSource" id="6940" presence="optional">
+      <copy/>
+    </string>
+    <string name="NewsID" id="1472" presence="optional">
+      <copy/>
+    </string>
+    <string name="LanguageCode" id="1474" presence="optional">
+      <copy/>
+    </string>
+    <string name="Headline" id="148" presence="optional">
+      <copy/>
+    </string>
+    <string name="URLLink" id="149" presence="optional">
+      <copy/>
+    </string>
+
+    <uInt32 name="EncodedHeadlineLen" id="358" presence="optional"/>
+    <string name="EncodedHeadline" id="359" presence="optional" charset="unicode"/>
+    
+    <sequence name="RelatedSym" presence="optional">
+      <length name="NoRelatedSym" id="146"/>
+      <uInt64 name="SecurityID" id="48">
+        <copy/>
+      </uInt64>
+      <uInt32 name="SecurityIDSource" id="22">
+        <constant value="8"/>
+      </uInt32>
+      <string name="SecurityExchange" id="207"/>
+    </sequence>
+    
+    <sequence name="LinesOfText" presence="optional">
+      <length name="NoLinesOfText" id="33"/>
+      <string name="Text" id="58">
+        <copy/>
+      </string>
+      
+      <uInt32 name="EncodedTextLen" id="354" presence="optional"/>
+      <string name="EncodedText" id="355" presence="optional" charset="unicode"/>
+    </sequence>
+  </template>
+  
+  <template name="MDNewsMessage_137" id="137" dictionary="137"> 
+    <!--desc="DEPRECATED. USE VERSION 143"-->
+    <string name="ApplVerID" id="1128">
+      <constant value="9"/>
+    </string>
+    <string name="MessageType" id="35">
+      <constant value="B"/>
+    </string>
+    <uInt32 name="MsgSeqNum" id="34"/>
+    <uInt64 name="SendingTime" id="52"/>
+    <uInt64 name="OrigTime" id="42" presence="optional">
+      <copy/>
+    </uInt64>
+    <string name="NewsSource" id="6940" presence="optional">
+      <copy/>
+    </string>
+    <string name="NewsID" id="1472" presence="optional">
+      <copy/>
+    </string>
+    <string name="LanguageCode" id="1474" presence="optional">
+      <copy/>
+    </string>
+    <string name="Headline" id="148" presence="optional">
+      <copy/>
+    </string>
+    <string name="URLLink" id="149" presence="optional">
+      <copy/>
+    </string>
+
+    <uInt32 name="EncodedHeadlineLen" id="358" presence="optional"/>
+    <string name="EncodedHeadline" id="359" presence="optional" charset="unicode"/>
+    
+    <sequence name="RelatedSym" presence="optional">
+      <length name="NoRelatedSym" id="146"/>
+      <uInt64 name="SecurityID" id="48">
+        <copy/>
+      </uInt64>
+      <uInt32 name="SecurityIDSource" id="22">
+        <constant value="8"/>
+      </uInt32>
+      <string name="SecurityExchange" id="207"/>
+    </sequence>
+    
+    <sequence name="LinesOfText" presence="optional">
+      <length name="NoLinesOfText" id="33"/>
+      <string name="Text" id="58">
+        <copy/>
+      </string>
+      
+      <uInt32 name="EncodedTextLen" id="354" presence="optional"/>
+      <string name="EncodedText" id="355" presence="optional" charset="unicode"/>
+    </sequence>
+  </template>
+    
+  <template name="MDNewsMessage_120" id="120" dictionary="120"> 
+    <!--desc="DEPRECATED. USE VERSION 143"-->
+    <!--desc="USED FOR PUMA DERIVATIVES 1.6.X"-->
+    <string name="ApplVerID" id="1128">
+        <constant value="9"/>
+    </string>
+    <string name="MessageType" id="35">
+        <constant value="B"/>
+    </string>
+    <uInt32 name="MsgSeqNum" id="34"/>
+    <uInt64 name="SendingTime" id="52"/>
+    <uInt64 name="OrigTime" id="42" presence="optional"/>
+    <string name="NewsSource" id="6940" presence="optional">
+        <copy/>
+    </string>
+    <string name="LanguageCode" id="1474" presence="optional">
+        <copy/>
+    </string>
+    <string name="Headline" id="148" presence="optional">
+        <copy/>
+    </string>
+    <string name="URLLink" id="149" presence="optional">
+        <copy/>
+    </string>
+    
+    <sequence name="RelatedSym" presence="optional">
+      <length name="NoRelatedSym" id="146"/>
+      <uInt64 name="SecurityID" id="48">
+          <copy/>
+      </uInt64>
+      <uInt32 name="SecurityIDSource" id="22">
+          <constant value="8"/>
+      </uInt32>
+      <string name="SecurityExchange" id="207"/>
+    </sequence>
+    
+    <sequence name="RoutingIds" presence="optional">
+      <length name="NoRoutingIDs" id="215"/>
+      <uInt32 name="RoutingType" id="216" presence="optional">
+          <default value="2"/>
+      </uInt32>
+      <string name="RoutingID" id="217" presence="optional"/>
+    </sequence>
+    
+    <sequence name="LinesOfText" presence="optional">
+      <length name="NoLinesOfText" id="33"/>
+      <string name="text" id="58">
+          <copy/>
+      </string>
+      <uInt32 name="EncodedTextLen" id="354" presence="optional"/>
+      <string name="EncodedText" id="355" presence="optional"/>
+    </sequence>
+  </template>
+</templates>

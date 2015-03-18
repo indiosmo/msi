@@ -1,0 +1,29 @@
+project(*): msi_test, boost, qfast {
+
+  exename = umdf_adapter_test
+
+  pch_header = msi/umdf/decoder/quickfast/umdf_decoder_quickfast_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/umdf/decoder/quickfast/umdf_decoder_quickfast_pch.cpp
+
+  libs += msi_logging
+  after += logging
+  libs += msi_umdf_messages
+  after += umdf_messages
+  libs += msi_umdf_decoder_quickfast
+  after += umdf_decoder_quickfast
+  libs += msi_umdf_adapter
+  after += umdf_adapter
+  libs += msi_marketdata_common
+  after += marketdata_common
+  libs += msi_marketdata_messages
+  after += marketdata_messages
+
+  Source_Files {
+    $(MSI_ROOT)/libs/umdf/adapter/test
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/libs/umdf/adapter/test
+  }
+
+}

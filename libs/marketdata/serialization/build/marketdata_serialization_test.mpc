@@ -1,0 +1,23 @@
+project(*): msi_test, boost {
+
+  exename = marketdataserializationtest
+  
+  pch_header = msi/msi_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/msi_pch.cpp
+
+  libs += msi_logging
+  after += logging
+  libs += msi_marketdata_messages
+  after += marketdata_messages
+  libs += msi_marketdata_serialization
+  after += marketdata_serialization
+
+  Source_Files {
+    $(MSI_ROOT)/libs/marketdata/serialization/test
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/libs/marketdata/serialization/test
+  }
+
+}

@@ -1,0 +1,23 @@
+project(*): msi_lib, boost {
+
+  sharedname = msi_network
+
+  dynamicflags += NETWORK_BUILD_DLL
+
+  pch_header = msi/msi_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/msi_pch.cpp
+
+  libs += msi_logging
+  after += logging
+
+  Source_Files {
+    $(MSI_ROOT)/libs/network/src
+    $(MSI_ROOT)/libs/network/src/tcp
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/msi/network
+    $(MSI_ROOT)/msi/network/tcp
+  }
+
+}

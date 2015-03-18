@@ -1,0 +1,12 @@
+project: msi_base {
+
+  specific(!vc12) {
+    exeout = $(MSI_ROOT)/bin
+  }
+
+  specific(vc12) {
+    Release::exeout = $(MSI_ROOT)/bin
+    Debug::exeout = $(MSI_ROOT)/bin/debug
+  }
+
+}

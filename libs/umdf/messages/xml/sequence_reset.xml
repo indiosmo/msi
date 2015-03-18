@@ -1,0 +1,9 @@
+<templates>
+    <template>
+      <string name="MsgType" id="35"/>
+      <uInt32 name="MsgSeqNum" id="34"/>
+      <uInt64 name="SendingTime" id="52"/>
+      <string name="ApplVerID" id="1128" presence="optional"/>
+      <uInt32 name="NewSeqNo" id="36"/>
+    </template>
+</templates>

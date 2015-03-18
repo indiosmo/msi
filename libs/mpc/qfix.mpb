@@ -1,0 +1,6 @@
+project {
+  libpaths += $(QUICKFIX_ROOT)/lib
+  includes += $(QUICKFIX_ROOT)/include
+
+  libs += quickfix
+}

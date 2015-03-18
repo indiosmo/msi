@@ -1,0 +1,78 @@
+<templates>
+  <template name="MDSecurityStatus_142" id="142" dictionary="142"> 
+      <!--desc="PREVIOUS VERSION WAS 134"-->
+      <string name="ApplVerID" id="1128">
+        <constant value="9"/>
+      </string>
+      <string name="MsgType" id="35">
+        <constant value="f"/>
+      </string>
+      <uInt32 name="MsgSeqNum" id="34"/>
+      <uInt64 name="SendingTime" id="52"/>
+      <string name="SecurityGroup" id="1151" presence="optional"/>
+      <uInt64 name="SecurityID" id="48" presence="optional"/>
+      <uInt32 name="SecurityIDSource" id="22" presence="optional">
+        <constant value="8"/>
+      </uInt32>
+      <string name="SecurityExchange" id="207" presence="optional"/>
+      <string name="TradingSessionSubID" id="625" presence="optional"/>
+      <uInt32 name="SecurityTradingStatus" id="326" presence="optional"/>
+      <uInt32 name="TradingSessionID" id="336" presence="optional"/>
+      <uInt64 name="TradSesOpenTime" id="342" presence="optional"/>
+      <uInt64 name="TransactTime" id="60"/>
+      <uInt32 name="TradeDate" id="75"/>
+      <uInt32 name="SecurityTradingEvent" id="1174" presence="optional"/>
+  </template>
+  
+  <template name="MDSecurityStatus_134" id="134" dictionary="134"> 
+      <!--desc="DEPRECATED. USE VERSION 142"-->
+      <string name="ApplVerID" id="1128">
+        <constant value="9"/>
+      </string>
+      <string name="MessageType" id="35">
+        <constant value="f"/>
+      </string>
+      <uInt32 name="MsgSeqNum" id="34"/>
+      <uInt64 name="SendingTime" id="52"/>
+      <string name="SecurityGroup" id="1151" presence="optional"/>
+      <string name="Symbol" id="55" presence="optional"/>
+      <uInt64 name="SecurityID" id="48" presence="optional"/>
+      <uInt32 name="SecurityIDSource" id="22" presence="optional">
+        <constant value="8"/>
+      </uInt32>
+      <string name="SecurityExchange" id="207" presence="optional"/>
+      <string name="TradingSessionSubID" id="625" presence="optional"/>
+      <uInt32 name="SecurityTradingStatus" id="326" presence="optional"/>
+      <uInt32 name="TradingSessionID" id="336" presence="optional"/>
+      <uInt64 name="TradSesOpenTime" id="342" presence="optional"/>
+      <uInt64 name="TransactTime" id="60"/>
+      <uInt32 name="TradeDate" id="75"/>
+      <uInt32 name="SecurityTradingEvent" id="1174" presence="optional"/>
+  </template>
+  
+  <template name="MDSecurityStatus_125" id="125" dictionary="125"> 
+      <!--desc="DEPRECATED. USE VERSION 142"-->
+      <!--desc="USED FOR PUMA DERIVATIVES 1.6.X"-->
+      <string name="ApplVerID" id="1128">
+          <constant value="9"/>
+      </string>
+      <string name="MessageType" id="35">
+          <constant value="f"/>
+      </string>
+      <uInt32 name="MsgSeqNum" id="34"/>
+      <uInt64 name="SendingTime" id="52"/>
+      <uInt32 name="TradeDate" id="75"/>
+      <string name="SecurityGroup" id="1151" presence="optional"/>
+      <string name="Symbol" id="55" presence="optional"/>
+      <uInt64 name="SecurityID" id="48" presence="optional"/>
+      <uInt32 name="SecurityIDSource" id="22" presence="optional">
+          <constant value="8"/>
+      </uInt32>
+      <string name="SecurityExchange" id="207" presence="optional"/>
+      <string name="TradingSessionSubID" id="625" presence="optional"/>
+      <uInt32 name="SecurityTradingStatus" id="326" presence="optional"/>
+      <uInt64 name="TradSesOpenTime" id="342" presence="optional"/>
+      <uInt64 name="TransactTime" id="60"/>
+      <uInt32 name="SecurityTradingEvent" id="1174" presence="optional"/>
+  </template>
+</templates>

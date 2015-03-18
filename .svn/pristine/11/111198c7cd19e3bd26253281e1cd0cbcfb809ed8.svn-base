@@ -1,0 +1,4 @@
+project {
+  libpaths += $(BOOST_ROOT)/lib
+  includes += $(BOOST_ROOT)
+}

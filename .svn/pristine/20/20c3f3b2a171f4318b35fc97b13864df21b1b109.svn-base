@@ -1,0 +1,35 @@
+project(*): msi_test, boost, qfast {
+
+  exename = umdftickerplanttest
+  
+  pch_header = msi/umdf/decoder/quickfast/umdf_decoder_quickfast_pch.hpp
+  pch_source = $(MSI_ROOT)/libs/umdf/decoder/quickfast/umdf_decoder_quickfast_pch.cpp
+
+  libs += msi_logging
+  after += logging
+  libs += msi_marketdata_common
+  after += marketdata_common
+  libs += msi_umdf_adapter
+  after += umdf_adapter
+  libs += msi_umdf_ticker_plant
+  after += umdf_ticker_plant
+  libs += msi_network
+  after += network
+  libs += msi_umdf_recovery
+  after += umdf_recovery
+  libs += msi_umdf_receiver
+  after += umdf_receiver
+  libs += msi_marketdata_serialization
+  after += marketdata_serialization
+  libs += msi_marketdata_messages
+  after += marketdata_messages
+
+  Source_Files {
+    $(MSI_ROOT)/libs/umdf/ticker_plant/test
+  }
+
+  Header_Files {
+    $(MSI_ROOT)/libs/umdf/ticker_plant/test
+  }
+
+}
