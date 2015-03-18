@@ -148,3 +148,4 @@ The new system is capable of handling 49x the peak volume of the entire marketda
 * Implement the filtered_ticker_plant service using tcp_server as an interface for the ticker_plant module.
 * Replace explicit std::function typedefs with the new event/event_handler model.
 * Replace all XSLT based code generation with a python compiler.
+* Review code for opportunities to templatize or abstract. Especially in modules that deal with marketdata, e.g. umdf_adapter and umdf_decoder_quickfast, where there is a lot of repetition.
