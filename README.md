@@ -139,7 +139,7 @@ The system that this library was initially intended to replace presented an aver
 * MSI Datagram Sequencing: 36ns/msg = 27.560.000msg/s.
 * Decoding of Bid MDEntry: 6,569us/msg = 152.219 msg/s
 * Serialization + Deserialization: 238ns/msg = 4.186.900msg/s
-* Total time from network to business logic: ~6.8us/msg = ~147.000msg/s.
+* Total time from datagram to business logic: ~6.8us/msg = ~147.000msg/s.
 
 The new system is capable of handling 49x the peak volume of the entire marketdata. Also most of the time is spent in the decoding step and replacing QuickFAST with a commercial or a purpose-built decoder should improve those times significantly.
 
@@ -153,3 +153,4 @@ The new system is capable of handling 49x the peak volume of the entire marketda
 * Replace explicit std::function typedefs with the new event/event_handler model.
 * Replace all XSLT based code generation with a python compiler.
 * Review code for opportunities to templatize or abstract. Especially in modules that deal with marketdata, e.g. umdf_adapter and umdf_decoder_quickfast, where there is a lot of repetition.
+* Research using specialized network hardware, e.g. Solarflare, for receiving multicast traffic and possibly replacing boost::asio with a multicast_receiver that spins polling the network card.
