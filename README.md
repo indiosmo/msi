@@ -42,7 +42,7 @@ The ticker_plant_service would then use the module, as can be seen in the umdf_t
 
 #Structure and Environment
 
-The directory structure follows the one used by boost. In the root of the project you find an *msi* directory which contains all headers and a *libs* directory which contains the sources. Resources such as FIX dictionaries are in the *resources* directory. The *etc* directory contains scripts and tools. Compiled libraries go into *lib*, executables into *bin* and unit tests into *unittests*.
+The directory structure follows the one used by boost. In the root of the project you'll find an *msi* directory which contains all headers and a *libs* directory which contains the sources, mpc files for project generation, miscellaneous tools related to the library and unit tests. Resources such as FIX dictionaries are in the *resources* directory. The *etc* directory contains scripts and tools. Compiled libraries go into *lib*, executables into *bin* and unit tests into *unittests*.
 
 The project uses MPC (Makefile Project Creator) to generate Visual Studio solutions for Windows or makefiles for Linux.
 
@@ -56,9 +56,48 @@ Dependencies (versions reflect the last successful build, currently building wit
 * [QuickFAST 1.5.0](https://www.ociweb.com/products/QuickFAST)
 * [boost 1.57.0](http://www.boost.org/)
  
-To build on windows, adjust your *setenv.bat* script and then in the *libs* directory run "mwc.pl -type vc12 msi.mwc". This will generate the solution file to open in Visual Studio.
+To build on windows, adjust your *setenv.bat* script, run it, and then in the *libs* directory run "mwc.pl -type vc12 msi.mwc". This will generate the solution file to open in Visual Studio.
 
 
 # Description of available modules
 
 ##concepts
+The concepts library is just a sandbox for testing ideas and performance.
+
+##logging
+Logging library. Currently contains 3 types of loggers: Console, File and Null (which just ignores log requests). The console logger is thread-safe.
+
+##marketdata_common
+Contains interfaces and constants that are shared by marketdata related modules.
+
+##marketdata_messages
+Contains the definition of the internal representation of messages available to marketdata modules. These should be used by other modules in order to maintain portability over different protocols. Adapters can be used to translate between third party formats and MSI's internal format.
+
+Messages are meant to be reused in order to avoid unecessary memory allocations so all messages contain a presence map along with its fields. The reset function zeroes out the presence map.
+
+The message classes are generated using scripts and XSLT, which are located in *libs/marketdata/messages/tools*.
+
+##marketdata_serialization
+Specialized serializers for the messages defined in the marketdata_messages library.
+
+The idea is to provide low latency serialization, which is accomplished by preallocating a buffer large enough to contain all fixed-width fields plus a sensible buffer for strings. A tradeoff was made to favour the cpu over the network, so fixed width fields are always transmitted even if they are not present. The client then needs to rely on the presence map to determine wheter or not to use a field. Strings on the other hand are only transmitted when present.
+
+Generated using XSLT.
+
+##network
+Provides higher level abstractions over boost::asio. At this point there are tcp and multicast clients and servers available.
+
+##umdf_messages
+Defines messages that are received from BMFBovespa UMDF. This is a one to one map to the exchange's FAST messages and are meant to be used by the FAST decoder.
+
+Generated using XSLT.
+
+##umdf_decoder_quickfast
+Implements builders for each message type defined in umdf_messages to be decoded using the QuickFAST engine.
+
+The engine will take a data pointer and output events for each decoded message.
+
+Generated using XSLT.
+
+##umdf_adapter
+Implements an adapter layer to convert between QuickFAST 
