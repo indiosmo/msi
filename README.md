@@ -1,5 +1,5 @@
 # MSI - Market Services and Infrastructure - Design Overview
-The project's objective is to provide a compendium of libraries, not unlike boost, but more abstract and focused on financial markets services.
+The project's objective is to provide a compendium of libraries, not unlike boost, but more abstract and focused on financial markets services. It takes design ideas from established libraries like boost, zeromq and the LMAX architecture popularized by Martin Fowler.
 
 There are 3 main concepts: modules, connectors and services.
 
@@ -100,4 +100,43 @@ The engine will take a data pointer and output events for each decoded message.
 Generated using XSLT.
 
 ##umdf_adapter
-Implements an adapter layer to convert between QuickFAST 
+Implements an adapter layer to convert between umdf_messages and marketdata_messages.
+
+##umdf_recovery
+Implements TCP Recovery functionality according to the specification of BMFBovespa UMDF.
+
+Only the null service is implemented at this point. The module's API is defined and the extensions to QuickFIX message types are already implemented but the QuickFIX client itself still isn't.
+
+##umdf_receiver
+Implements datagram ordering, chunk assembly and loss recovery according to the specification of BMFBovespa UMDF.
+
+##umdf_ticker_plant
+A higher level module, intended to be used by the ticker_plant service to publish UMDF marketdata via TCP using the protocol and messages defined in marketdata_messages and marketdata_serialization.
+
+This module defines the pipeline from receiver -> decoder -> marketdata_serialization -> tcp_server.
+
+The receiver and decoder modules are injected. In the umdf_ticker_plant_test project the entire pipeline can be seen:
+
+*multicast_receiver -> sequencing_machine -> quickfast_decoder -> umdf_adapter -> marketdata_serialization -> tcp_server*
+
+Based on the ideas published by LMAX this entire pipeline tries to allocate as little as possible and runs entirely in a single thread in order to avoid concurrency problems, scheduling latency and keep the data as close to the cache as possible.
+
+
+# Latency results
+
+To put things in context, the entirety of BMFBovespa - including both markets - at it's peak does not produce more than around 3,000 messages per second. The feed is received either through a dedicated fiber network or inside the exchange's colocation. These are the paremeters I worked with when considering the performance of the application.
+
+Performance tests then assume the expected scenario of small messages (mostly bid, ask and trade) and near-zero packet loss and reordering.
+
+The system that this library was initially intended to replace presented an average lantecy of around 3ms from receiving a datagram to being able to use the data in my code.
+
+* Benchmark: 3ms from datagram to business logic
+* MSI Datagram Sequencing: 36ns/msg = 27.560.000msg/s.
+* Decoding of Bid MDEntry: 6,569us/msg = 152.219 msg/s
+* Serialization + Deserialization: 238ns/msg = 4.186.900msg/s
+* Total time from network to business logic: ~6.8us/msg = ~147.000msg/s.
+
+The new system is capable of handling 49x the peak volume of the entire marketdata. Also most of the time is spent in the decoding step and replacing QuickFAST with a commercial or a purpose-built decoder should improve those times significantly.
+
+
+
