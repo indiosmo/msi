@@ -14,6 +14,8 @@ Modules can be further divided in border modules and intermediary modules.
 
 Border modules perform I/O on one side and connect to other modules on the other side, e.g. a multicast_receiver module receives multicast data from the network and outputs the received datagrams to be used in another library, and a multicast_sender module takes input from other modules and sends over the network using multicast.
 
+Intermediary modules receive input as function calls and produce output in the form of events.
+
 Modules are intended to provide a specific functionality, .e.g. FAST decoding, datagram sequencing, etc,  and do not concern themselves with thread synchronization or messaging, meaning that none of the modules should be assumed to be thread safe.
 
 ## Connectors
@@ -119,8 +121,7 @@ The receiver and decoder modules are injected. In the umdf_ticker_plant_test pro
 
 *multicast_receiver -> sequencing_machine -> quickfast_decoder -> umdf_adapter -> marketdata_serialization -> tcp_server*
 
-Based on the ideas published by LMAX this entire pipeline tries to allocate as little as possible and runs entirely in a single thread in order to avoid concurrency problems, scheduling latency and keep the data as close to the cache as possible.
-
+Based on the ideas published by LMAX this entire pipeline tries to allocate as little as possible and runs entirely in a single thread in order to avoid concurrency problems, scheduling latency and keep the data as close to the cache as possible. This is achieved by wiring modules directly with std::bind.
 
 # Latency results
 
@@ -139,4 +140,11 @@ The system that this library was initially intended to replace presented an aver
 The new system is capable of handling 49x the peak volume of the entire marketdata. Also most of the time is spent in the decoding step and replacing QuickFAST with a commercial or a purpose-built decoder should improve those times significantly.
 
 
+#Roadmap
 
+* Finish the implementation of the QuickFIX recovery service
+* Detach tcp_server from the ticker_plant module, thus making it an intermediary module
+* Implement a filtered_ticker_plant module that takes the output from ticker_plant and performs topic based filtering before outputting messages
+* Implement the filtered_ticker_plant service using tcp_server as an interface for the ticker_plant module.
+* Replace explicit std::function typedefs with the new event/event_handler model.
+* Replace all XSLT based code generation with a python compiler.
