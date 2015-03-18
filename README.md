@@ -16,7 +16,11 @@ Border modules perform I/O on one side and connect to other modules on the other
 
 Intermediary modules receive input as function calls and produce output in the form of events.
 
-Modules are intended to provide a specific functionality, .e.g. FAST decoding, datagram sequencing, etc,  and do not concern themselves with thread synchronization or messaging, meaning that none of the modules should be assumed to be thread safe.
+Modules are intended to provide a specific functionality, .e.g. FAST decoding, datagram sequencing, etc,  and do not concern themselves with thread synchronization or messaging.
+
+The modules are not thread safe, so do not use the same instance of a module from multiple threads.
+
+The modules do not make any assumption as to how the data they produce will be used, they may however make assumptions on input data.
 
 ## Connectors
 Between modules there is the concept of connectors which are used to connect output from one module to the input of another. 
