@@ -65,7 +65,7 @@ Dependencies (versions reflect the last successful build, currently building wit
 To build on windows, adjust your *setenv.bat* script, run it, and then in the *libs* directory run "mwc.pl -type vc12 msi.mwc". This will generate the solution file to open in Visual Studio.
 
 
-# Description of available modules
+# Description of available libraries
 
 ##concepts
 The concepts library is just a sandbox for testing ideas and performance.
