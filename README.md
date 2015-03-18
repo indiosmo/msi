@@ -39,6 +39,26 @@ The ticker_plant module wires the output from the receiver to the input of the d
 
 The ticker_plant_service would then use the module, as can be seen in the umdf_test_ticker_plant project. The service instantiates and injects all the module's dependencies and wires modules to one another.
 
+
+#Structure and Environment
+
+The directory structure follows the one used by boost. In the root of the project you find an *msi* directory which contains all headers and a *libs* directory which contains the sources. Resources such as FIX dictionaries are in the *resources* directory. The *etc* directory contains scripts and tools. Compiled libraries go into *lib*, executables into *bin* and unit tests into *unittests*.
+
+The project uses MPC (Makefile Project Creator) to generate Visual Studio solutions for Windows or makefiles for Linux.
+
+Like boost, modules are grouped into a single library when appropriate, for instance the network library contains the tcp server and client modules, as well as the multicast sender and receiver modules.
+
+The code is meant to be portable, even though at this point development has been in Windows only. Also some of the performance tests contain windows specific code (mainly QueryPerformanceCounter stuff) that would need to be removed when compiling for Linux.
+
+Dependencies (versions reflect the last successful build, currently building with VC12):
+* [MPC 4.1.0](https://www.ociweb.com/products/mpc)
+* [QuickFIX 1.14.3](http://www.quickfixengine.org/)
+* [QuickFAST 1.5.0](https://www.ociweb.com/products/QuickFAST)
+* [boost 1.57.0](http://www.boost.org/)
+ 
+To build on windows, adjust your *setenv.bat* script and then in the *libs* directory run "mwc.pl -type vc12 msi.mwc". This will generate the solution file to open in Visual Studio.
+
+
 # Description of available modules
 
-##
+##concepts
